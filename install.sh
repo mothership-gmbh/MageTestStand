@@ -32,12 +32,8 @@ cd ${SOURCE_DIR}
 if [ ! -f htdocs/app/etc/local.xml ] ; then
 
     # Create main database
-    MYSQLPASS=""
-    if [ ! -z $MAGENTO_DB_PASS ]; then MYSQLPASS="-p\'${MAGENTO_DB_PASS}\'"; fi
-    mysql -u\'${MAGENTO_DB_USER}\' ${MYSQLPASS} -h${MAGENTO_DB_HOST} -P${MAGENTO_DB_PORT} -e "DROP DATABASE IF EXISTS ${MAGENTO_DB_NAME}; CREATE DATABASE ${MAGENTO_DB_NAME};"
+    mysql -u${MAGENTO_DB_USER} -p${$MAGENTO_DB_PASS} -h${MAGENTO_DB_HOST} -P${MAGENTO_DB_PORT} -e "DROP DATABASE IF EXISTS ${MAGENTO_DB_NAME}; CREATE DATABASE ${MAGENTO_DB_NAME};"
 
-    echo "mysql -u\'${MAGENTO_DB_USER}\' ${MYSQLPASS} -h${MAGENTO_DB_HOST} -P${MAGENTO_DB_PORT}" 
-    
     sed -i -e s/MAGENTO_DB_HOST/${MAGENTO_DB_HOST}/g .modman/Aoe_TestSetup/app/etc/local.xml.phpunit
     sed -i -e s/MAGENTO_DB_PORT/${MAGENTO_DB_PORT}/g .modman/Aoe_TestSetup/app/etc/local.xml.phpunit
     sed -i -e s/MAGENTO_DB_USER/${MAGENTO_DB_USER}/g .modman/Aoe_TestSetup/app/etc/local.xml.phpunit
