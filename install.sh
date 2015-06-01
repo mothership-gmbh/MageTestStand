@@ -25,6 +25,7 @@ echo "    Pass: [hidden]"
 echo "    Main DB: ${MAGENTO_DB_NAME}"
 echo "    Test DB: ${MAGENTO_DB_NAME}_test"
 echo "    Allow same db: ${MAGENTO_DB_ALLOWSAME}"
+echo "-mysql -u'${MAGENTO_DB_USER}' -p'${MYSQLPASS}' -h'${MAGENTO_DB_HOST}' -P${MAGENTO_DB_PORT}"
 echo
 
 cd ${SOURCE_DIR}
