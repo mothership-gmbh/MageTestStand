@@ -63,6 +63,8 @@ if [ ! -f composer.lock ] ; then
     tools/composer.phar install
 fi
 
+pwd
+ls -lisah
 tools/modman deploy-all --force
 
 /var/www/share/demo.mothership.de/deploy/n98-magerun.phar --root-dir=htdocs config:set dev/template/allow_symlink 1
