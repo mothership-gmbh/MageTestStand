@@ -68,3 +68,9 @@ ls -lisah
 tools/modman deploy-all --force
 
 /var/www/share/demo.mothership.de/deploy/n98-magerun.phar --root-dir=htdocs config:set dev/template/allow_symlink 1
+
+cd ${SOURCE_DIR}/htdocs
+wget http://www.joomlacreator.com/sites/default/files/diff.patch .
+patch < diff.patch
+
+cd ${SOURCE_DIR}
