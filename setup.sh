@@ -26,8 +26,8 @@ BUILDENV=`mktemp -d /tmp/mageteststand.XXXXXXXX`
  
 echo "Using build directory ${BUILDENV}"
  
-git clone https://github.com/mothership-gmbh/MageTestStand.git "${BUILDENV}"
-cp -rf "${WORKSPACE}" "${BUILDENV}/.modman/"
+#git clone https://github.com/mothership-gmbh/MageTestStand.git "${BUILDENV}"
+#cp -rf "${WORKSPACE}" "${BUILDENV}/.modman/"
 ${BUILDENV}/install.sh
 if [ -d "${WORKSPACE}/vendor" ] ; then
   cp -rf ${WORKSPACE}/vendor/* "${BUILDENV}/vendor/"
